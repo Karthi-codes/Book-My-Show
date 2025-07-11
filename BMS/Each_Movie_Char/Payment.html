@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Page</title>
+  <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Payment Details</h2>
+      <input type="text" name="name" id="name" placeholder="Full Name" required>
+      <input type="email" name="email" id="email" placeholder="Email" required>
+      <input type="text" name="card" id="card" placeholder="Card Number" required>
+      <input type="text" name="expiry" id="card_1" placeholder="Expiry Date (MM/YY)" required>
+      <input type="number" name="amount" id="amount" placeholder="Amount" required>
+      <button onclick="showAlert()" type="submit">Pay Now</button>
+  </div>
+
+</body>
+<script>
+  function showAlert() {
+  // Example: Check if input fields are empty
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const card = document.getElementById("email").value.trim();
+  const card_1  = document.getElementById("email").value.trim();
+  const amount = document.getElementById("email").value.trim();
+
+
+  if (name !== "" && email!=="" && card !== "" && card_1 !=="" && amount !=="" ) {
+    alert("Payment Successfull Thank you for using BookMyShow!");
+    window.location.href = "../index.html"; // Corrected line
+  } else {
+    alert(" Please Enter the Details");
+  }
+}
+
+
+
+
+</script>
+
+</html>
