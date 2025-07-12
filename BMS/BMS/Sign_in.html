@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon">
+
+  <title>Sign Up</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ffffff;
+      color: #36d1dc;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #a1d8ec;
+      color: #fff;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Create Account</h2>
+    <form action="/post" method="post">
+      <input type="text" id="name" name="name" required placeholder="Enter Your Name">
+      <input type="text" id="name" name="email" required placeholder="Enter Your Email">
+      <input type="text"  id="name" name="phone" required placeholder="Mobile Number" />
+      <input type="password" id="name" name="password" required placeholder="Create Password" />
+      <button>Sign Up</button>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </form>
+  </div>
+
+  <!-- <script>
+    function registerUser() {
+      const phone = document.getElementById("signupPhone").value;
+      const pass = document.getElementById("signupPass").value;
+
+      if (phone && pass) {
+        localStorage.setItem(phone, JSON.stringify({ password: pass }));
+        alert("Account created! Please log in.");
+        window.location.href = "login.html";
+      } else {
+        alert("Please fill all fields.");
+      }
+    }
+  </script> -->
+</body>
+
+</html>

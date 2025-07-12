@@ -3,6 +3,9 @@
     "development"
   ],
   "hints": {
+<<<<<<< HEAD
+    "axe/name-role-value": "off"
+=======
     "axe/name-role-value": "off",
     "axe/forms": "off",
     "no-inline-styles": "off",
@@ -12,5 +15,6 @@
     "axe/parsing": "off",
     "axe/text-alternatives": "off",
     "button-type": "off"
+>>>>>>> e998eaa (Css and Responsive is Added)
   }
 }

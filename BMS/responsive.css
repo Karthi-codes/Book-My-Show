@@ -53,6 +53,7 @@ html, body {
         font-size: 10px;
         width: 100%;
         gap: 25px;
+        height: 50px;
     }
 
     #three a{
@@ -83,7 +84,7 @@ html, body {
    }
 
    .footer{
-        height:261vh ;
+        height:fit-content ;
    }
 
     .footer-top {
@@ -162,6 +163,7 @@ html, body {
         font-size: 10px;
         width: 100%;
         gap: 45px;
+        height: 50px;
     }
 
     #three a{
@@ -192,7 +194,8 @@ html, body {
    }
 
    .footer{
-        height:261vh ;
+        height:fit-content ;
+
    }
 
     .footer-top {
@@ -312,7 +315,7 @@ html, body {
    }
 
    .footer{
-        height:261vh ;
+        height:fit-content ;
    }
 
     .footer-top {
@@ -342,7 +345,7 @@ html, body {
       
 }
 
-@media (min-width:768px) and (max-width:1024px) {
+@media (min-width:769px) and (max-width:1024px) {
     body{
         width: 100%;
     }
@@ -425,7 +428,8 @@ html, body {
    }
 
    .footer{
-        height:140vh ;
+        height:fit-content ;
+
    }  
 }
 
@@ -461,6 +465,9 @@ html, body {
         font-size: 13px;
     }
     
+    .footer{
+        height:fit-content ;
+    }
     /* #two{
         position: relative;
         left: 0px;
@@ -519,9 +526,6 @@ html, body {
         margin-left: -25px;
    }
 
-   .footer{
-        height:261vh ;
-   }
 
     .footer-top {
         align-items: center;

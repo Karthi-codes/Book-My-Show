@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avengers Secret Wars</title>
+    <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+        }
+
+        .movie-header {
+            display: flex;
+            background: #111;
+            color: white;
+            padding: 20px;
+        }
+
+        .poster {
+            width: 200px;
+            margin-right: 20px;
+        }
+
+        .movie-info h1 {
+            margin-top: 0;
+        }
+
+        .section {
+            padding: 20px;
+            background: white;
+            margin-top: 10px;
+        }
+
+        .section h2 {
+            text-decoration: none;
+        }
+
+        #button {
+            color: white;
+            background-color: rgb(252, 84, 140);
+
+        }
+
+        .cast-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cast-list a {
+            text-align: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .cast-list img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .review {
+            background: #eee;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Review */
+
+        .review-tag {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin: 5px;
+            display: inline-block;
+            background-color: #f8f9fa;
+        }
+
+        .review-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .rating-star {
+            color: #fa4567;
+            font-size: 18px;
+        }
+
+        .username {
+            font-weight: bold;
+        }
+
+        .hashtags {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .meta-icons i {
+            margin-right: 10px;
+            color: gray;
+        }
+
+        #img {
+            height: 50px;
+            width: 50px;
+        }
+
+        .cast-list p {
+            margin-top: 15px;
+        }
+
+        .recommendation-section {
+            padding: 20px;
+        }
+
+        .recommendation-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .movies {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+        }
+
+        .movie {
+            width: 150px;
+        }
+
+        .movie img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .rating {
+            font-size: 14px;
+            background: #000;
+            color: #fff;
+            padding: 4px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .title {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        footer {
+            background: #222;
+            color: #ccc;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="movie-header">
+        <img src="../Images/ASW.webp" alt="CLR Poster" class="poster">
+        <div class="movie-info">
+            <h1>Avengers Secret Wars</h1>
+            <p>⭐ 8.0/10 (10.8K Votes)</p>
+            <p>Dec 2027 • Action, Adventure , Fantasy , Sci-Fi • U •</p>
+            <!-- <button id="button" onclick="window.location.href='#'">Book Tickets</button> -->
+            <a href="../home.html"><button id="button">Back</button></a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>About the Movie</h2>
+        <p>
+            It all leads to Wars. 
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Cast</h2>
+        <div class="cast-list">
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-28(1).jpg" alt="Robert Downey Jr.">
+                <p>Robert Downey <br> Jr.</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-28(2).jpg" alt="Gwyneth Paltrow">
+                <p>Gwyneth <br> Paltrow</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-28(3).jpg" alt="Hugh Jackman">
+                <p>Hugh Jackman</p>
+            </a>
+             <a href="#"><img src="../Each_Movie_Char/Images/Movie-28(4).jpg" alt="Ryan Reynolds">
+                <p>Ryan Reynolds</p>
+            </a>
+             <a href="#"><img src="../Each_Movie_Char/Images/Movie-28(5).jpg" alt="Tom Holland">
+                <p>Tom Holland</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(1).jpg" alt="Chris Hemsworth">
+                <p>Chris <br> Hemsworth</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(2).jpg" alt="Anthony Mackie">
+                <p>Anthony Mackie</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(3).jpg" alt="Pedro Pascal">
+                <p>Pedro Pascal</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(4).jpg" alt="Sebastian Stan">
+                <p>Sebastian Stan</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(5).jpg" alt="Tom Hiddleston">
+                <p>Tom Hiddleston</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(6).jpg" alt="Paul Rudd">
+                <p>Paul Rudd</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(7).jpg" alt="Vanessa Kirby">
+                <p>Vanessa Kirby</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(8).jpg" alt="Wyatt Russell">
+                <p>Wyatt Russell</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(9).jpg" alt="Ebon Moss-Bachrach">
+                <p>Ebon <br> Moss-Bachrach</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(10).jpg" alt="Kelsey Grammer">
+                <p>Kelsey Grammer</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(11).jpg" alt="David Harbour">
+                <p>David Harbour</p>
+            </a>
+            <!-- Add more -->
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Crew</h2>
+        <div class="cast-list">
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(12).jpg" alt="Joe Russo">
+                <p>Joe Russo</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(13).jpg" alt="Anthony Russo">
+                <p>Anthony Russo</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(14).jpg" alt="Jack Kirby">
+                <p>David Heyman</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(15).jpg" alt="Stan Lee">
+                <p>Stan Lee</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-27(16).jpg" alt="Jeffrey Ford">
+                <p>Jeffrey Ford</p>
+            </a>
+            <!-- Add more -->
+        </div>
+    </div>
+
+
+            <!-- Add more -->
+        </div>
+    </div>
+
+    <div class="recommendation-section">
+        <h2>You might also like</h2>
+        <div class="movies">
+            <div class="movie">
+                <img src="../Images/10007.jpg" alt="Tourist Family">
+                <div class="rating">⭐ 9.5/10 48.3K Votes</div>
+                <div class="title">Tourist Family</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10008.jpg" alt="Tourist Family">
+                <div class="rating">⭐ 9.6/10 51.3K Votes</div>
+                <div class="title">Mission: Impossible - The <br> Final Reckoning</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10002.jpg" alt="Lilo & Stitch">
+                <div class="rating">⭐ 8.5/10 8.6K Votes</div>
+                <div class="title">Lilo & Stitch</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10011.jpg" alt="Thug Life">
+                <div class="rating">💚 66.1K Likes</div>
+                <div class="title">Thug Life</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10010.jpg" alt="Eleven">
+                <div class="rating">⭐ 9.2/10 4.8K Votes</div>
+                <div class="title">Eleven</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10004.jpg" alt="Tourist Family">
+                <div class="rating">⭐ 8.9/10 5.3K Votes</div>
+                <div class="title">Ace</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>Movies Now Showing</h4>
+                <a href="#">Maaman</a>
+                <a href="#">Karate Kid: Legends</a>
+                <a href="#">Tourist Family</a>
+                <a href="#">Eleven</a>
+            </div>
+            <div class="footer-column">
+                <h4>Upcoming Movies</h4>
+                <a href="#">Avengers Doomsday</a>
+                <a href="#">Coolie</a>
+                <a href="#">Jana Nayagan <br>etc.....</a>
+            </div>
+            <div class="footer-column">
+                <h4>Help</h4>
+                <a href="#">24/7 Customer Care</a>
+                <a href="#">Resend Booking Confirmation</a>
+                <a href="#">Subscribe to Newsletter</a>
+            </div>
+            <div class="footer-column">
+                <h4>Partner With Us</h4>
+                <a href="#">List your Show</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 BookMyShow Clone. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>

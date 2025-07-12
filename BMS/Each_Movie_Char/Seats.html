@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Seat Selection</title>
     <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
     <style>
         body {
@@ -156,65 +158,65 @@
     <!-- PRICE -->
     <div class="price" id="totalPrice">Total: ₹0</div>
 
-   
+
 
 </body>
- <script>
-        const cols = 18;
-        const bookedSeats = [3, 5, 9, 20, 33, 40, 50, 55, 67, 71, 83, 100, 120, 150];
+<script>
+    const cols = 18;
+    const bookedSeats = [3, 5, 9, 20, 33, 40, 50, 55, 67, 71, 83, 100, 120, 150];
 
-        const totalPriceElement = document.getElementById("totalPrice");
+    const totalPriceElement = document.getElementById("totalPrice");
 
-        function createSeats(sectionId, rowStart, rowEnd, price) {
-            const container = document.getElementById(sectionId);
+    function createSeats(sectionId, rowStart, rowEnd, price) {
+        const container = document.getElementById(sectionId);
 
-            for (let i = rowStart; i <= rowEnd; i++) {
-                for (let j = 0; j < cols; j++) {
-                    const seat = document.createElement("div");
-                    seat.classList.add("seat");
-                    seat.dataset.row = i;
-                    seat.dataset.col = j;
-                    seat.dataset.price = price;
-                    seat.textContent = j + 1;
+        for (let i = rowStart; i <= rowEnd; i++) {
+            for (let j = 0; j < cols; j++) {
+                const seat = document.createElement("div");
+                seat.classList.add("seat");
+                seat.dataset.row = i;
+                seat.dataset.col = j;
+                seat.dataset.price = price;
+                seat.textContent = j + 1;
 
-                    const seatIndex = i * cols + j;
-                    if (bookedSeats.includes(seatIndex)) {
-                        seat.classList.add("booked");
-                    }
-
-                    seat.addEventListener("click", () => {
-                        if (!seat.classList.contains("booked")) {
-                            seat.classList.toggle("selected");
-                            updateTotal();
-                        }
-                    });
-
-                    container.appendChild(seat);
+                const seatIndex = i * cols + j;
+                if (bookedSeats.includes(seatIndex)) {
+                    seat.classList.add("booked");
                 }
+
+                seat.addEventListener("click", () => {
+                    if (!seat.classList.contains("booked")) {
+                        seat.classList.toggle("selected");
+                        updateTotal();
+                    }
+                });
+
+                container.appendChild(seat);
             }
         }
+    }
 
-        createSeats("luxury", 0, 2, 200);  // A–C
-        createSeats("gold", 3, 7, 150);   // D–H
-        createSeats("silver", 8, 11, 100); // I–L
+    createSeats("luxury", 0, 2, 200);  // A–C
+    createSeats("gold", 3, 7, 150);   // D–H
+    createSeats("silver", 8, 11, 100); // I–L
 
-        function updateTotal() {
-            const selected = document.querySelectorAll(".seat.selected");
-            let total = 0;
-            selected.forEach(seat => {
-                total += parseInt(seat.dataset.price);
-            });
-            totalPriceElement.textContent = `Total: ₹${total}`;
+    function updateTotal() {
+        const selected = document.querySelectorAll(".seat.selected");
+        let total = 0;
+        selected.forEach(seat => {
+            total += parseInt(seat.dataset.price);
+        });
+        totalPriceElement.textContent = `Total: ₹${total}`;
+    }
+
+    function goToPage() {
+        if (document.querySelectorAll(".seat.selected").length === 0) {
+            alert("Please select at least one seat before proceeding to payment.");
+        } else {
+            // Optionally pass seat data via query or store in localStorage
+            window.location.href = "payment.html";
         }
-
-        function goToPage() {
-            if (document.querySelectorAll(".seat.selected").length === 0) {
-                alert("Please select at least one seat before proceeding to payment.");
-            } else {
-                // Optionally pass seat data via query or store in localStorage
-                window.location.href = "payment.html";
-            }
-        }
-    </script>
+    }
+</script>
 
 </html>

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -20,6 +20,7 @@
 
     .movie-header {
       display: flex;
+      flex-wrap: wrap;
       background: #111;
       color: white;
       padding: 20px;
@@ -27,11 +28,18 @@
 
     .poster {
       width: 200px;
+      max-width: 100%;
       margin-right: 20px;
+    }
+
+    .movie-info {
+      flex: 1;
+      min-width: 250px;
     }
 
     .movie-info h1 {
       margin-top: 0;
+      font-size: 28px;
     }
 
     .section {
@@ -40,14 +48,14 @@
       margin-top: 10px;
     }
 
-    .section h2 {
-      text-decoration: none;
-    }
-
     #button {
       color: white;
       background-color: rgb(252, 84, 140);
-
+      border: none;
+      padding: 8px 16px;
+      margin-right: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
     }
 
     .cast-list {
@@ -60,20 +68,20 @@
       text-align: center;
       text-decoration: none;
       color: black;
+      width: 100px;
     }
 
     .cast-list img {
-      width: 100px;
+      width: 100%;
+      max-width: 100px;
       border-radius: 50%;
     }
 
-    .review {
-      background: #eee;
-      padding: 10px;
-      margin-bottom: 10px;
+    .cast-list p {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 500;
     }
-
-    /* Review */
 
     .review-tag {
       border: 1px solid #ccc;
@@ -82,6 +90,7 @@
       margin: 5px;
       display: inline-block;
       background-color: #f8f9fa;
+      font-size: 14px;
     }
 
     .review-card {
@@ -89,6 +98,7 @@
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 20px;
+      font-size: 16px;
     }
 
     .rating-star {
@@ -103,6 +113,7 @@
     .hashtags {
       font-weight: bold;
       color: #000;
+      font-size: 15px;
     }
 
     .meta-icons i {
@@ -115,8 +126,47 @@
       width: 50px;
     }
 
-    .cast-list p {
-      margin-top: 15px;
+    @media (max-width: 768px) {
+      .movie-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .poster {
+        margin: 0 auto 20px;
+        width: 60%;
+      }
+
+      .movie-header{
+        width: 100%;
+      }
+
+      .movie-info h1 {
+        font-size: 22px;
+      }
+
+      .cast-list {
+        justify-content: center;
+      }
+
+      .cast-list a {
+        width: 80px;
+      }
+
+      .cast-list p {
+        font-size: 16px;
+      }
+
+      .review-card {
+        font-size: 15px;
+        padding: 15px;
+      }
+
+      .review-tag {
+        font-size: 13px;
+        padding: 4px 12px;
+      }
     }
   </style>
 </head>
