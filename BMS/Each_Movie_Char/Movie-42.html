@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premalu 2</title>
+    <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+        }
+
+        .movie-header {
+            display: flex;
+            flex-wrap: wrap;
+            background: #111;
+            color: white;
+            padding: 20px;
+        }
+
+        .poster {
+            width: 200px;
+            max-width: 100%;
+            margin-right: 20px;
+        }
+
+        .movie-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .movie-info h1 {
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        .section {
+            padding: 20px;
+            background: white;
+            margin-top: 10px;
+        }
+
+        #button {
+            color: white;
+            background-color: rgb(252, 84, 140);
+            border: none;
+            padding: 8px 16px;
+            margin-right: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .cast-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cast-list a {
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            width: 100px;
+        }
+
+        .cast-list img {
+            width: 100%;
+            max-width: 100px;
+            border-radius: 50%;
+        }
+
+        .cast-list p {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .review-tag {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin: 5px;
+            display: inline-block;
+            background-color: #f8f9fa;
+            font-size: 14px;
+        }
+
+        .review-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .rating-star {
+            color: #fa4567;
+            font-size: 18px;
+        }
+
+        .username {
+            font-weight: bold;
+        }
+
+        .hashtags {
+            font-weight: bold;
+            color: #000;
+            font-size: 15px;
+        }
+
+        .meta-icons i {
+            margin-right: 10px;
+            color: gray;
+        }
+
+        #img {
+            height: 50px;
+            width: 50px;
+        }
+
+        .recommendation-section {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        .recommendation-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .movies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .movie {
+            width: 160px;
+            text-align: center;
+        }
+
+        .movie img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .movie img:hover {
+            transform: scale(1.05);
+        }
+
+        .movie .rating {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .movie .title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 40px 20px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            min-width: 180px;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .footer-column a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #aaa;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 480px) {
+            .movie {
+                width: 100%;
+            }
+
+            .recommendation-section h2 {
+                font-size: 22px;
+            }
+
+            .movie .title {
+                font-size: 14px;
+            }
+
+            .movie .rating {
+                font-size: 13px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .movie-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .poster {
+                margin: 0 auto 20px;
+                width: 60%;
+            }
+
+            .movie-info h1 {
+                font-size: 22px;
+            }
+
+            .cast-list {
+                justify-content: center;
+            }
+
+            .cast-list a {
+                width: 80px;
+            }
+
+            .cast-list p {
+                font-size: 16px;
+            }
+
+            .review-card {
+                font-size: 15px;
+                padding: 15px;
+            }
+
+            .review-tag {
+                font-size: 13px;
+                padding: 4px 12px;
+            }
+
+            .movie {
+                width: 45%;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-column {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="movie-header">
+        <img src="../Images/Permalu_2.jpg" alt="Premalu 2" class="poster">
+        <div class="movie-info">
+            <h1>Premalu 2</h1>
+            <p>⭐ 9/10 (25.9K Votes)</p>
+            <p> • Comedy , Romantic • 2025</p>
+            <button id="button" onclick="window.location.href='./Booking_page.html'">Book Tickets</button>
+            <a href="../home.html"><button id="button">Back</button></a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>About the Movie</h2>
+        <p>
+          The gang is back! Catch Sachin, Reenu and friends in a new adventure filled with love, laughter and excitement.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Cast</h2>
+        <div class="cast-list">
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(1).jpg" alt="Naslen">
+                <p>Naslen</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(2).jpg" alt="Mamitha Baiju">
+                <p>Mamitha Baiju</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(3).jpg" alt="Sangeeth Prathap">
+                <p>Sangeeth <br> Prathap</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(4).jpg" alt="Akhila Bhargavan">
+                <p>Akhila <br> Bhargavan</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(5).jpg" alt="Shyam Mohan Mohan">
+                <p>Shyam <br> Mohan</p>
+            </a>
+            
+            <!-- Add more -->
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Crew</h2>
+        <div class="cast-list">
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(6).jpg "alt="Girish A. D.">
+                <p>Girish A. D.</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(7).jpg" alt="Fahadh Faasil">
+                <p>Fahadh Faasil</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(8).jpg" alt="Dileesh Pothan">
+                <p>Dileesh Pothan</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(9).jpg" alt="Syam Pushkaran">
+                <p>Syam <br> Pushkaran</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(10).jpg" alt="Bhavana Studios">
+                <p>Bhavana Studios</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(11).jpg" alt="Vishnu Vijay">
+                <p>Vishnu Vijay</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(12).jpg" alt="Ajmal Sabu">
+                <p>Ajmal Sabu</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(13).jpg" alt="Akash Joseph Varghese">
+                <p>Akash Joseph <br> Varghese</p>
+            </a>
+            <a href="#"><img src="../Each_Movie_Char/Images/Movie-42(14).jpg" alt="Kiran Josey">
+                <p>Kiran Josey</p>
+            </a>
+            <!-- Add more -->
+        </div>
+    </div>
+
+    <div class="recommendation-section">
+        <h2>You might also like</h2>
+        <div class="movies">
+            <div class="movie">
+                <img src="../Images/10007.jpg" alt="Tourist Family">
+                <div class="rating">⭐ 9.5/10 48.3K Votes</div>
+                <div class="title">Tourist Family</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10011.jpg" alt="Thug Life">
+                <div class="rating">💚 66.1K Likes</div>
+                <div class="title">Thug Life</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10008.jpg" alt="Tourist Family">
+                <div class="rating">⭐ 9.6/10 51.3K Votes</div>
+                <div class="title">Mission: Impossible - The <br> Final Reckoning</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10002.jpg" alt="Lilo & Stitch">
+                <div class="rating">⭐ 8.5/10 8.6K Votes</div>
+                <div class="title">Lilo & Stitch</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10004.jpg" alt="Tourist Family">
+                <div class="rating">⭐ 8.9/10 5.3K Votes</div>
+                <div class="title">Ace</div>
+            </div>
+            <div class="movie">
+                <img src="../Images/10010.jpg" alt="Eleven">
+                <div class="rating">⭐ 9.2/10 4.8K Votes</div>
+                <div class="title">Eleven</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>Movies Now Showing</h4>
+                <a href="#">Maaman</a>
+                <a href="#">Karate Kid: Legends</a>
+                <a href="#">Tourist Family</a>
+                <a href="#">Eleven</a>
+            </div>
+            <div class="footer-column">
+                <h4>Upcoming Movies</h4>
+                <a href="#">Avengers Doomsday</a>
+                <a href="#">Coolie</a>
+                <a href="#">Jana Nayagan <br>etc.....</a>
+            </div>
+            <div class="footer-column">
+                <h4>Help</h4>
+                <a href="#">24/7 Customer Care</a>
+                <a href="#">Resend Booking Confirmation</a>
+                <a href="#">Subscribe to Newsletter</a>
+            </div>
+            <div class="footer-column">
+                <h4>Partner With Us</h4>
+                <a href="#">List your Show</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 BookMyShow Clone. All rights reserved.
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
