@@ -2,221 +2,254 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Seat Selection</title>
-    <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Seat Selection</title>
+  <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      margin: 0;
+    }
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            padding: 20px;
-        }
+    h2 {
+      text-align: center;
+      font-size: 24px;
+    }
 
-        h2 {
-            text-align: center;
-        }
+    .time-options {
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
 
-        .time-options {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .time-options button {
+      padding: 10px 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
 
-        .time-options button {
-            margin: 5px;
-            padding: 10px 15px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
+    .time-options button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
 
-        .screen {
-            text-align: center;
-            margin: 20px 0;
-            font-weight: bold;
-        }
+    .screen {
+      text-align: center;
+      margin: 20px 0;
+      font-weight: bold;
+    }
 
-        .category {
-            margin: 30px 0 10px;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-        }
+    .category {
+      margin: 30px 0 10px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-        .seats {
-            display: grid;
-            grid-template-columns: repeat(18, 40px);
-            gap: 8px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+    .seats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+      gap: 10px;
+      justify-content: center;
+      margin: 0 auto 20px;
+      max-width: 1000px;
+    }
 
-        .seat {
-            width: 40px;
-            height: 40px;
-            border-radius: 4px;
-            background-color: #90ee90;
-            text-align: center;
-            line-height: 40px;
-            font-size: 14px;
-            cursor: pointer;
-            border: 1px solid #666;
-        }
+    .seat {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 4px;
+      background-color: #90ee90;
+      text-align: center;
+      line-height: 2;
+      font-size: 20px;
+      cursor: pointer;
+      border: 1px solid #666;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-        .seat.selected {
-            background-color: #007bff;
-            color: white;
-        }
+    .seat:hover:not(.booked):not(.selected) {
+      transform: scale(1.08);
+      background-color: #7ddb7d;
+    }
 
-        .seat.booked {
-            background-color: #f5c542;
-            cursor: not-allowed;
-        }
+    .seat.selected {
+      background-color: #007bff;
+      color: white;
+    }
 
-        .legend {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
+    .seat.booked {
+      background-color: #f5c542;
+      cursor: not-allowed;
+    }
 
-        .legend div {
-            margin: 0 10px;
-            display: flex;
-            align-items: center;
-        }
+    .legend {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-        .legend .box {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-            border-radius: 4px;
-            border: 1px solid #000;
-        }
+    .legend div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
 
-        .available {
-            background: #90ee90;
-        }
+    .legend .box {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 1px solid #000;
+    }
 
-        .selected {
-            background: #007bff;
-        }
+    .available {
+      background: #90ee90;
+    }
 
-        .booked {
-            background: #f5c542;
-        }
+    .selected {
+      background: #007bff;
+    }
 
-        .price {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
+    .booked {
+      background: #f5c542;
+    }
+
+    .price {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 18px;
+      }
+
+      .category {
+        font-size: 16px;
+      }
+
+      .seat {
+        font-size: 10px;
+      }
+
+      .time-options button {
+        font-size: 12px;
+        padding: 8px 12px;
+      }
+
+      .price {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <h2>Raajam Cineplex 4K Dolby Atmos, Karuppur: Salem</h2>
+  <h2>Raajam Cineplex 4K Dolby Atmos, Karuppur: Salem</h2>
 
-    <div class="time-options">
-        <button>11:15 AM</button>
-        <button>02:40 PM</button>
-        <button>06:30 PM</button>
-        <button>10:15 PM</button>
-        <button onclick="goToPage()">Payment Method</button>
-    </div>
+  <div class="time-options">
+    <button>11:15 AM</button>
+    <button>02:40 PM</button>
+    <button>06:30 PM</button>
+    <button>10:15 PM</button>
+    <button onclick="goToPage()">Payment Method</button>
+  </div>
 
-    <div class="screen">SCREEN THIS WAY</div>
+  <div class="screen">SCREEN THIS WAY</div>
 
-    <!-- LUXURY ROWS -->
-    <div class="category">Luxury - ₹200</div>
-    <div class="seats" id="luxury"></div>
+  <!-- LUXURY ROWS -->
+  <div class="category">Luxury - ₹200</div>
+  <div class="seats" id="luxury"></div>
 
-    <!-- GOLD ROWS -->
-    <div class="category">Gold - ₹150</div>
-    <div class="seats" id="gold"></div>
+  <!-- GOLD ROWS -->
+  <div class="category">Gold - ₹150</div>
+  <div class="seats" id="gold"></div>
 
-    <!-- SILVER ROWS -->
-    <div class="category">Silver - ₹100</div>
-    <div class="seats" id="silver"></div>
+  <!-- SILVER ROWS -->
+  <div class="category">Silver - ₹100</div>
+  <div class="seats" id="silver"></div>
 
-    <!-- LEGEND -->
-    <div class="legend">
-        <div>
-            <div class="box available"></div>Available
-        </div>
-        <div>
-            <div class="box selected"></div>Selected
-        </div>
-        <div>
-            <div class="box booked"></div>Booked
-        </div>
-    </div>
+  <!-- LEGEND -->
+  <div class="legend">
+    <div><div class="box available"></div>Available</div>
+    <div><div class="box selected"></div>Selected</div>
+    <div><div class="box booked"></div>Booked</div>
+  </div>
 
-    <!-- PRICE -->
-    <div class="price" id="totalPrice">Total: ₹0</div>
+  <!-- PRICE -->
+  <div class="price" id="totalPrice">Total: ₹0</div>
 
-
-
-</body>
-<script>
+  <script>
     const cols = 18;
     const bookedSeats = [3, 5, 9, 20, 33, 40, 50, 55, 67, 71, 83, 100, 120, 150];
-
     const totalPriceElement = document.getElementById("totalPrice");
 
     function createSeats(sectionId, rowStart, rowEnd, price) {
-        const container = document.getElementById(sectionId);
+      const container = document.getElementById(sectionId);
 
-        for (let i = rowStart; i <= rowEnd; i++) {
-            for (let j = 0; j < cols; j++) {
-                const seat = document.createElement("div");
-                seat.classList.add("seat");
-                seat.dataset.row = i;
-                seat.dataset.col = j;
-                seat.dataset.price = price;
-                seat.textContent = j + 1;
+      for (let i = rowStart; i <= rowEnd; i++) {
+        for (let j = 0; j < cols; j++) {
+          const seat = document.createElement("div");
+          seat.classList.add("seat");
+          seat.dataset.row = i;
+          seat.dataset.col = j;
+          seat.dataset.price = price;
+          seat.textContent = j + 1;
 
-                const seatIndex = i * cols + j;
-                if (bookedSeats.includes(seatIndex)) {
-                    seat.classList.add("booked");
-                }
+          const seatIndex = i * cols + j;
+          if (bookedSeats.includes(seatIndex)) {
+            seat.classList.add("booked");
+          }
 
-                seat.addEventListener("click", () => {
-                    if (!seat.classList.contains("booked")) {
-                        seat.classList.toggle("selected");
-                        updateTotal();
-                    }
-                });
-
-                container.appendChild(seat);
+          seat.addEventListener("click", () => {
+            if (!seat.classList.contains("booked")) {
+              seat.classList.toggle("selected");
+              updateTotal();
             }
+          });
+
+          container.appendChild(seat);
         }
+      }
     }
 
-    createSeats("luxury", 0, 2, 200);  // A–C
-    createSeats("gold", 3, 7, 150);   // D–H
-    createSeats("silver", 8, 11, 100); // I–L
-
     function updateTotal() {
-        const selected = document.querySelectorAll(".seat.selected");
-        let total = 0;
-        selected.forEach(seat => {
-            total += parseInt(seat.dataset.price);
-        });
-        totalPriceElement.textContent = `Total: ₹${total}`;
+      const selected = document.querySelectorAll(".seat.selected");
+      let total = 0;
+      selected.forEach(seat => {
+        total += parseInt(seat.dataset.price);
+      });
+      totalPriceElement.textContent = `Total: ₹${total}`;
     }
 
     function goToPage() {
-        if (document.querySelectorAll(".seat.selected").length === 0) {
-            alert("Please select at least one seat before proceeding to payment.");
-        } else {
-            // Optionally pass seat data via query or store in localStorage
-            window.location.href = "payment.html";
-        }
+      if (document.querySelectorAll(".seat.selected").length === 0) {
+        alert("Please select at least one seat before proceeding to payment.");
+      } else {
+        window.location.href = "./Payment.html";
+      }
     }
-</script>
+
+    createSeats("luxury", 0, 2, 200);
+    createSeats("gold", 3, 7, 150);
+    createSeats("silver", 8, 11, 100);
+  </script>
+</body>
 
 </html>
