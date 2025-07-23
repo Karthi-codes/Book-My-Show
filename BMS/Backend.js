@@ -27,6 +27,7 @@ check.once('open',function(req,res){
 
 // it is used to define the schema of the connection
 const database_type= new mongoose.Schema({ 
+    name:String,
     phone:String,
     password:String,
     email:String
@@ -40,10 +41,10 @@ app.get('/',function(req,res){
 
 // when i press the submit button the data will store in the database by using the collection name
 app.post("/post",async function(req,res) {
-    const{phone,password,email}=req.body;
+    const{name,phone,password,email}=req.body;
     
     const data=new collection({
-        phone,password,email
+        name,phone,password,email
     })
     await data.save();
 
@@ -59,9 +60,9 @@ app.get('/login',function(req,res){
 
 // post method is used to check the details that i saved in the login page that will check the detail in sign.in page
 app.post('/BookMyShow',async function(req,res) {
-    const{phone,password,email}=req.body;
+    const{name,phone,password,email}=req.body;
 
-    const chk=await collection.findOne({phone,password,email});
+    const chk=await collection.findOne({name,phone,password,email});
 
     if(chk){
         res.sendFile(path.join(__dirname,"home.html"))
